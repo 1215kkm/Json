@@ -1,0 +1,27 @@
+* {margin: 0; padding: 0; text-decoration: none; list-style: none; color:#222;}
+
+.list {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.list input[type=submit] {padding: 30px; margin: 10px; cursor: pointer;}
+
+.detail_top {width: 700px; height: 250px; margin:20px auto}
+.detail_top .detailTop_left {width:290px; height: 250px; float:left ; text-align:center}
+.detail_top .detailTop_left img {width:225px; height:225px; }
+.detail_top .detailTop_right {width:410px; height: 250px; float:right; position: relative; }
+.detail_top .detailTop_right select { width:332px;height:48px; line-height:48px; border-radius:0; font-size:16px}
+.detail_top .detailTop_right select option {border-radius:0}
+.option_detail ul {padding:10px 0}
+.option_detail ul:after {content:""; display:block; clear:both}
+.option_detail li {float: left; text-indent:8px; font-size:18px; height:48px; line-height:48px;}
+.option_detail li.price_txt {font-size:16px; color:#333; position: relative; }
+.option_detail li.subject {width:60px; height:48px; line-height:48px; font-size:16px}
+.option_detail button {padding:16px 48px; color:#fff; font-size:18px; float: left; margin:0 2px}
+button#option_submit {background: #974b4b;}
+button#btn_kakao {background: #d0ab18;}
+div.prod_ea {width: 170px; height: 48px; position: absolute; top:80px; right:0px; text-indent:0; display:none }
+div.prod_ea  input {width: 58px; height: 44px; font-size: 16px; text-align: center; border:1px solid #ccc;; float: left}
+div.prod_ea .up {width: 48px; height: 48px; background: #333; display: block; float: left; color:#fff; line-height: 48px; text-align: center;cursor: pointer;  font-size:18px; margin-left: 1px;}
+div.prod_ea .down {width: 48px; height: 48px; background: #333; display: block; ; float: left; color:#fff; line-height: 48px; text-align: center;cursor: pointer;  font-size:18px; margin-left: 1px;}
+div.prod_ea span:hover {color:yellow;}
+
+
+#postTitle {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-size:20px; font-weight:bold; width:500px; height: 100px; text-align: center;}

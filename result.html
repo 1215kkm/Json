@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JSON 값 불러오기 연습</title>
+
+	<link rel="stylesheet" href="css/common.css">
+
+	<script src="script/jquery-1.10.2.js"></script>
+	<script src='script/action.js'></script>
+
+</head>
+<body>
+	<script>
+	var getParameters = function (paramName) {
+	    var returnValue;
+	    var url = location.href;
+	    var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+	    for (var i = 0; i < parameters.length; i++) {
+	        var varName = parameters[i].split('=')[0];
+	        if (varName.toUpperCase() == paramName.toUpperCase()) {
+	            returnValue = parameters[i].split('=')[1];
+	            return decodeURIComponent(returnValue);
+	        }
+	    }
+	};
+
+	var won = getParameters('choice');
+	var category = getParameters('gory');
+	var total = getParameters('total');
+	var count = getParameters('count');
+
+	$(document).ready(function(){
+		$('#postTitle').val(category+'      '+addComma(won)+'원 '+count+'개     /     총가격 : '+addComma(total)+'원 ');
+		
+
+		//1000단위 콤마
+		function addComma(num){
+			var len, point, str; 
+			   
+			num = num + ""; 
+			point = num.length % 3 ;
+			len = num.length; 
+		   
+			str = num.substring(0, point); 
+			while (point < len) { 
+				if (str != "") str += ","; 
+				str += num.substring(point, point + 3); 
+				point += 3; 
+			} 
+			 
+			return str;	 
+		}
+		
+		if (category.indexOf('km') != -1) {
+			$('table.extraVarsList tr').eq(4).hide();
+			$('table.extraVarsList tr').eq(5).hide();
+			$('table.extraVarsList tr').eq(6).hide();
+			console.log('상품권.txt')
+		}
+		if (category.indexOf('km2') != -1) {
+			$('table.extraVarsList tr').eq(4).hide();
+			$('table.extraVarsList tr').eq(5).hide();
+			$('table.extraVarsList tr').eq(6).hide();
+			console.log('구글기프트카드.txt')
+		}
+		if (category.indexOf('km3') != -1) {
+			console.log('대리결제.txt')
+		}
+	})
+		
+	</script>
+
+
+
+
+
+	<input type="text" name="title" id="postTitle" class="iText" value="" title="제목" />
+</body>
+</html>

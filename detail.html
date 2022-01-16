@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JSON 값 불러오기 연습</title>
+
+	<link rel="stylesheet" href="css/common.css">
+
+</head>
+<body>
+	<!--상품상세-->		
+		<div class="detail_top">
+			<strong class="cate"></strong>
+
+
+			<div class="detailTop_left">
+				<img src="" alt="" class="bigImg">
+			</div>
+			<div class="detailTop_right">
+				<div class="option_detail">
+					<ul style="display:block; ">
+						<li class="subject">선택 :</li>
+						<li class="opT">
+							<form action="" method="post" id="sangpum">
+								<input type="hidden" name="error_return_url" value="/giftcard/1280" />
+								<input type="hidden" name="act" value="" />
+								<input type="hidden" name="mid" value="giftcard" />
+								<input type="hidden" name="vid" value="" />
+
+								<select name="choice" id="choice" onchange="changeItem()">
+								</select>
+
+							</form>
+						</li>
+					</ul>
+					
+					<ul style="display:block; margin-bottom: 30px;">
+						<li class="subject">가격 : </li>
+						<li class="price_txt">
+							※ 옵션을 선택해주세요
+						</li>
+					</ul>
+					<div class="prod_ea">
+						<input type="text" value="1" name="prod_ea" id="prod_su" class="ea">
+						<span class="up">+</span>
+						<span class="down">-</span>
+					</div>
+					
+					
+					
+					<button type="button" onclick="buttonClick()">주문서작성</button>
+					
+				</div>
+			</div>
+		</div>
+
+		
+		<script src="script/jquery-1.10.2.js"></script>	
+		
+		
+<script>window.onload = function () {
+    //쿼리스트링에서 "km"에 해당하는 값을 가져온다.
+
+	var urlParams = new URLSearchParams(location.search);
+	console.log(urlParams)
+	urlParams.set('km', 'giftcard')
+
+    var urlSearch = new URLSearchParams(location.search).get("km");
+	
+	
+	$(document).ready(function() {
+	    var $allData = [];
+
+
+		$.getJSON('json/km-data5.json', function initGallery(data){
+			if (urlSearch == "giftcard")
+				// data = JSON.parse(giftcard);
+				// optInfoArr = data.title;
+
+				var $allData = data
+				console.log($allData)
+
+
+				var $container = $('#choice'),
+					elements = [];
+				
+				$.each($allData, function(idx, item){
+					var itemHTML = '<option>'+item.title+'</option>';
+					
+					elements.push($(itemHTML).get(0))
+				})
+				
+				$container.append(elements);
+
+		})
+
+	});
+}
+    </script>
+</body>
+</html>
